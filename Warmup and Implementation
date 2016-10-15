@@ -1,0 +1,92 @@
+#######################################Service Lane######################################################
+
+N,T = map(int,raw_input().split())        
+A = map(int, raw_input().split())
+for i in range(T):
+    a,b = map(int,raw_input().split())
+    if b < N:
+        print min(A[a:b+1])
+    else:
+        print min(A[a:])
+        
+#########################Circular Array Rotation#############################################################################################
+
+##Approach 1 Brute force .. does not work on all test cases
+n,k,q = map(int, raw_input().split())   
+A = map(int, raw_input().split())
+index = []
+for i in range(q):
+    a = int(raw_input())
+    index.append(a)
+
+while k >0:
+    temp = A[-1]
+    for i in range(len(A)-1,-1,-1):
+        A[i] = A[i-1]
+    A[0] = temp
+    k = k-1    
+        
+for i in range(len(A)-1,-1,-1):
+    print i
+    
+for i in index:
+    print A[i]
+        
+    
+for i in range(q):
+    print i
+
+##################################################################################################
+#####Approach 2.. Attempt 1 Learnt it from http://gotitt.blogspot.in/2016/09/circular-array-rotation.html####
+n,k,q = map(int, raw_input().split())   
+A = map(int, raw_input().split())
+index = []
+for i in range(q):
+    a = int(raw_input())
+    index.append(a)
+
+index_revised = []
+if k < n:
+    for i in index:
+        if k<=i:
+            index_revised.append(i-k)
+        else:
+            index_revised.append(n+i-k)
+            
+    for i in index_revised:
+        print A[i]        
+else:
+    k = k%n
+    if k == 0:
+        for i in index:
+            print A[i]
+            break
+
+    else:
+        for i in index:
+            if k<=i:
+                index_revised.append(i-k)
+            else:
+                index_revised.append(n+i-k)
+    
+        for i in index_revised:
+            print A[i]
+            
+####################Fewer lines of code ..Attempt 2 as per the blog ################################################################################
+            
+n,k,q = map(int, raw_input().split())   
+A = map(int, raw_input().split())
+index = []
+for i in range(q):
+    a = int(raw_input())
+    index.append(a)
+
+k = k%n
+for m in index:
+    j = m-k
+    if j < 0:
+        print A[n+j]
+    
+    else:
+        print A[j]
+        
