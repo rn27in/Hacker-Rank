@@ -1,0 +1,9 @@
+#######################################Service Lane######################################################
+N,T = map(int,raw_input().split())        
+A = map(int, raw_input().split())
+for i in range(T):
+    a,b = map(int,raw_input().split())
+    if b < N:
+        print min(A[a:b+1])
+    else:
+        print min(A[a:])
