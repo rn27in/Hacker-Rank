@@ -20,3 +20,12 @@ else:
     print 'NO'    
 
 ########################################################################
+
+############Sock Merchant############
+n = map(int, raw_input())
+c = map(int, raw_input().split())
+c_un = set(c)
+socks = [c.count(i) for i in c_un]
+print sum([i/2 for i in socks])
+
+#############################################
