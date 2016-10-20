@@ -29,3 +29,19 @@ socks = [c.count(i) for i in c_un]
 print sum([i/2 for i in socks])
 
 #############################################
+
+###############Viral Advertising##########################
+n = int(raw_input())
+
+cnt = 0
+for i in range(1,(n+1),1):
+    print i
+    if i == 1:
+        temp = floor(5/2)
+        cnt += temp
+    else:
+        temp = floor(temp*3/2)
+        cnt+= temp
+
+print cnt
+#################################################################
